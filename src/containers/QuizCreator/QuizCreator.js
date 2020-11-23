@@ -48,7 +48,7 @@ export default class QuizCreator extends Component {
 
     addQuestionHandler = event => {
         event.preventDefault()
-        const {question, option1, option2, option3, option4, options} = this.state.formControls
+        const {question, option1, option2, option3, option4} = this.state.formControls
 
         const quiz = this.state.quiz.concat()
         const index = quiz.length+1
@@ -78,7 +78,7 @@ export default class QuizCreator extends Component {
         event.preventDefault()
 
         try {
-            const response = await axios.post('https://quiz-react-3618f.firebaseio.com/quiz', this.state.quiz)
+            const response = await axios.post('https://quiz-react-3618f.firebaseio.com/quizes.json', this.state.quiz)
             console.log(response)
         }
         catch(e) {

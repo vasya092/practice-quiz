@@ -6,6 +6,7 @@ import Auth from './containers/Auth/Auth'
 import QuizList from './containers/QuizList/QuizList'
 import { Route, Switch } from 'react-router-dom';
 
+
 function App() {
   return (
     <div className="App">
