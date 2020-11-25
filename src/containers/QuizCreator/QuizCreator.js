@@ -5,7 +5,7 @@ import {createControl, validate, validateForm} from '../../form/formFramework'
 import Button from '../../components/UI/Button/Button'
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary'
 import Select from '../../components/UI/Select/Select'
-import axios from 'axios'
+import axios from '../../axios/axios'
 
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
@@ -78,8 +78,13 @@ export default class QuizCreator extends Component {
         event.preventDefault()
 
         try {
-            const response = await axios.post('https://quiz-react-3618f.firebaseio.com/quizes.json', this.state.quiz)
-            console.log(response)
+            await axios.post('/quizes.json', this.state.quiz)
+            this.setState({
+                quiz: [],
+                isFormValid: false,
+                rightAnswerId: 1,
+                formControls: createFormControls()
+            })
         }
         catch(e) {
             console.log(e);
