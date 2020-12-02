@@ -14,7 +14,9 @@ class Quiz extends Component{
         console.log('Quiz id = ', this.props.match.params.id)
         this.props.fetchQuizById(this.props.match.params.id)
     } 
-
+    componentWillUnmount(){
+        this.props.retryQuiz()
+    }
     render() {
         return (
         <div className={classes.Quiz}>

@@ -71,7 +71,7 @@ export default class Auth extends Component {
 
     validateControl(value, validation) {
         if(!validation) {
-            return TextTrackCue
+            return true
         }
 
         let isValid = true

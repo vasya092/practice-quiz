@@ -62,8 +62,8 @@ export default function quizReducer(state = initialState, action) {
         case QUIZ_NEXT_QUESTION: {
             return{
                 ...state,
-                activeQuestion: action.number,
-                answerState: null
+                answerState: null,
+                activeQuestion: action.number
             }
         }
         case QUIZ_RETRY: {

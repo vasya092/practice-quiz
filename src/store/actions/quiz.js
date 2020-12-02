@@ -61,24 +61,12 @@ export function quizAnswerClick(answerId) {
                 results[question.id] = 'success'
             }
             dispatch(quizSetState({[answerId]: 'success'}, results))
-            // this.setState({
-            //     answerState: {[rightId]: 'success'},
-            //     results: results
-            // })
             const timeout = window.setTimeout(()=>{
                 if(isQuizFinished(state)) {
                     dispatch(finishQuiz())
-                    // this.setState({
-                    //     isFinished: true
-                    // })
+
                 } else {
                     dispatch(quizNextQuestion(state.activeQuestion+1))
-                    // this.setState(
-                    //     {
-                    //         activeQuestion: state.activeQuestion+1,
-                    //         answerState: null
-                    //     }
-                    // )
                 }
                 window.clearTimeout(timeout)
             }, 1000)
@@ -86,10 +74,6 @@ export function quizAnswerClick(answerId) {
         else {
             results[question.id] = 'error'
             dispatch(quizSetState({[answerId]: 'error'}, results))
-            // this.setState({
-            //     answerState: {[answerId]: 'error'},
-            //     results: results
-            // })
         }
     }
     
